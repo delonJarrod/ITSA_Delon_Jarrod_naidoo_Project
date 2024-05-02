@@ -25,7 +25,7 @@ namespace ITSA_Delon_Jarrod_naidoo.Controllers
             return View(await _admin.SearchResults(UserId));
         }        
         
-        public async Task<IActionResult> ViewDetails(int UserId)
+        public async Task<IActionResult> ViewDetails(string UserId)
         {
             return View(await _admin.ViewDetails(UserId));
         }

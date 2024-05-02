@@ -2,7 +2,6 @@
 using ITSA_Delon_Jarrod_naidoo.Interface;
 using ITSA_Delon_Jarrod_naidoo.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace ITSA_Delon_Jarrod_naidoo.Logic
 {
@@ -36,7 +35,7 @@ namespace ITSA_Delon_Jarrod_naidoo.Logic
             return users;  
         }        
         
-        public async Task<List<User>> ViewDetails(int UserID)
+        public async Task<List<User>> ViewDetails(string UserID)
         {
             List<User> users = new List<User>();    
             try
