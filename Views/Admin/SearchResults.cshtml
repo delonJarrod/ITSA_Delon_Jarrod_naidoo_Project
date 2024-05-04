@@ -18,55 +18,54 @@
                         <ul class="feature-job-list">
                             @foreach (var person in Model)
                             {
-
-                                <li style="cursor: pointer;">
-                                        <div class="single-feature-job wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-                                            <div class="row">
-                                                <div class="col col-md-2">
-                                                    <h6 class="job-title">@person.Name</h6>
-                                                </div>
-                                                
-                                                <div class="col col-md-2">
-                                                    <h6 class="job-title"> @person.Surname</h6>
-                                                </div>
-                                                
-                                                <div class="col col-md-2">
-                                                    <div class="job-location me-3">
-                                                       @person.ContactNumber
-                                                    </div>
-                                                </div>
-
-                                            <div class="col col-md-2">
-                                                <div class="job-location me-3">
-                                                  @person.EmailAddress
+                                var count = 1;
+                                <li>
+                                    <div class="single-feature-job wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-1">
+                                                <h6 class="job-title text-center text-md-start">#@count</h6>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <h6 class="job-title">@person.Name @person.Surname</h6>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="job-location me-2">
+                                                    @person.ContactNumber
                                                 </div>
                                             </div>
-
-                                            <div class="col col-md-2">
-                                                <button onclick="View('@person.UserId')" type="button" class="btn btn-primary">View</button>
+                                            <div class="col-md-3">
+                                                <div class="job-location me-2">
+                                                    @person.EmailAddress
+                                                </div>
                                             </div>
-
-
-                                         </div>
+                                            <div class="col-md-2 pt-md-0 pt-2">
+                                                <button onclick="View('@person.UserId')" type="button" class="btn btn-primary me-2 w-100">View</button>
+                                            </div>
+                                            <div class="col-md-2 pt-md-0 pt-2">
+                                                <button onclick="confirmDelete('@person.Name', '@person.Surname', '@person.UserId')" type="button" class="btn btn-danger w-100">Delete</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </li>
+                                count = count + 1;
                             }
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
 }
 
 <script>
     function View(UserId) {
-        debugger;
         $.ajax({
             url: "/Admin/ViewDetails",
-            method: "GET",
-            data: { Search: UserId },
+            method: "POST",
+            data: { UserId: UserId },
             success: function (data) {
+                $("#SearchResult").html(data);
                 $("#preloader").hide();
             },
             error: function (xhr, status, error) {
@@ -74,5 +73,27 @@
                 $("#preloader").hide();
             }
         });
+    }
+
+    function confirmDelete(firstName, lastName, userId) {
+        var confirmMsg = "Are you sure you want to delete " + firstName + " " + lastName + "?";
+        if (confirm(confirmMsg)) {
+            alert("Deleting...");
+            $.ajax({
+                url: "/Admin/Delete",
+                method: "POST",
+                data: { UserId: userId },
+                success: function (data) {
+                    $("#SearchResult").html(data);
+                    $("#preloader").hide();
+                },
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                    $("#preloader").hide();
+                }
+            });
+        } else {
+          
+        }
     }
 </script>

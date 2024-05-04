@@ -20,14 +20,34 @@ namespace ITSA_Delon_Jarrod_naidoo.Controllers
             return View();
         }
 
-        public async Task<IActionResult> SearchResults(string UserId)
+        public IActionResult CreateForm()
         {
-            return View(await _admin.SearchResults(UserId));
+            return View();
+        }
+
+        public async Task<IActionResult> SearchResults(string searchItem)
+        {
+            return View(await _admin.SearchResults(searchItem));
         }        
         
-        public async Task<IActionResult> ViewDetails(string UserId)
+        public async Task<IActionResult> ViewDetails(int UserId)
         {
-            return View(await _admin.ViewDetails(UserId));
+           return View(await _admin.ViewDetails(UserId));
         }
+        public async Task<IActionResult> Update(User User)
+        {
+           return View(await _admin.Update(User));
+        }
+
+        public async Task<IActionResult> Create(User User)
+        {
+            return View(await _admin.Create(User));
+        }
+        public async Task<IActionResult> Delete(int UserId)
+        {
+            return View(await _admin.Delete(UserId));
+        }
+
+
     }
 }

@@ -25,10 +25,11 @@
                                <a class="nav-link active" role="button" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                             <li class="nav-item dropdown submenu">
-                                <a class="nav-link" role="button" asp-area="" asp-controller="Admin" asp-action="AddUser">Admin</a>
+                                <a class="nav-link" asp-area="">Admin</a>
                                 <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i>
                                 <ul class="dropdown-menu ">
                                         <li class="nav-item"><a class="nav-link" role="button" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a></li>
+                                        <li class="nav-item"><a class="nav-link" role="button" asp-area="" asp-controller="Admin" asp-action="CreateForm">Create User</a></li>
                                 </ul>
                             </li>
                         </ul>

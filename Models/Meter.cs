@@ -17,13 +17,6 @@ namespace ITSA_Delon_Jarrod_naidoo.Models
         public string AssetName { get; set; }
 
         [Required]
-        public double VoltageAmperage { get; set; }
-
-        // Foreign keys
-        public int AddressId { get; set; }
-        public Address Address { get; set; }
-
-        public int? UserId { get; set; }
-        public User User { get; set; }
+        public decimal VoltageAmperage { get; set; }
     }
 }
