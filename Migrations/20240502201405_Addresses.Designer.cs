@@ -4,6 +4,7 @@ using ITSA_Delon_Jarrod_naidoo.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITSA_Delon_Jarrod_naidoo.Migrations
 {
     [DbContext(typeof(ITSADbContext))]
-    partial class ITSADbContextModelSnapshot : ModelSnapshot
+    [Migration("20240502201405_Addresses")]
+    partial class Addresses
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +25,7 @@ namespace ITSA_Delon_Jarrod_naidoo.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ITSA_Delon_Jarrod_naidoo.Models.Address", b =>
+            modelBuilder.Entity("ITSA_Delon_Jarrod_naidoo.Models.Addresses", b =>
                 {
                     b.Property<int>("AddressId")
                         .ValueGeneratedOnAdd()
@@ -60,7 +63,7 @@ namespace ITSA_Delon_Jarrod_naidoo.Migrations
 
                     b.HasKey("AddressId");
 
-                    b.ToTable("Address");
+                    b.ToTable("Addresses", (string)null);
                 });
 
             modelBuilder.Entity("ITSA_Delon_Jarrod_naidoo.Models.Meter", b =>
@@ -134,7 +137,7 @@ namespace ITSA_Delon_Jarrod_naidoo.Migrations
 
             modelBuilder.Entity("ITSA_Delon_Jarrod_naidoo.Models.User", b =>
                 {
-                    b.HasOne("ITSA_Delon_Jarrod_naidoo.Models.Address", "Address")
+                    b.HasOne("ITSA_Delon_Jarrod_naidoo.Models.Addresses", "Address")
                         .WithMany()
                         .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Cascade)

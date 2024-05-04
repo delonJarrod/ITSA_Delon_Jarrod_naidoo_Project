@@ -65,8 +65,9 @@
         $.ajax({
             url: "/Admin/ViewDetails",
             method: "GET",
-            data: { Search: UserId },
+            data: { UserId: UserId },
             success: function (data) {
+                $("#SearchResult").html(data);
                 $("#preloader").hide();
             },
             error: function (xhr, status, error) {

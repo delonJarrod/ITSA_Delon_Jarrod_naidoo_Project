@@ -19,8 +19,10 @@ namespace ITSA_Delon_Jarrod_naidoo.Data
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Address> Address { get; set; }
         public DbSet<Meter> Meters { get; set; }
+
+     
 
     }
 }

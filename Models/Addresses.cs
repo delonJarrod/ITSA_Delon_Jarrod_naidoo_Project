@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ITSA_Delon_Jarrod_naidoo.Models
 {
     public class Address
     {
+
         [Key]
         public int AddressId { get; set; }
 
@@ -25,5 +27,8 @@ namespace ITSA_Delon_Jarrod_naidoo.Models
         public string UnitNumber { get; set; }
 
         public string ComplexName { get; set; }
+
+        public int MeterId { get; set; }
+        public Meter Meter { get; set; }
     }
 }

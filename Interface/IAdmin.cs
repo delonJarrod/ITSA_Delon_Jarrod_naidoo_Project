@@ -5,6 +5,7 @@ namespace ITSA_Delon_Jarrod_naidoo.Interface
     public interface IAdmin
     {
         public Task<List<User>> SearchResults(string UserId);
-        public Task<List<User>> ViewDetails(string UserId);
+        public Task<User> ViewDetails(int UserId);
+        public Task<User> Update(User User);
     }
 }
