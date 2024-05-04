@@ -4,6 +4,7 @@ using ITSA_Delon_Jarrod_naidoo.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITSA_Delon_Jarrod_naidoo.Migrations
 {
     [DbContext(typeof(ITSADbContext))]
-    partial class ITSADbContextModelSnapshot : ModelSnapshot
+    [Migration("20240505124119_RegisterRemoveSalt")]
+    partial class RegisterRemoveSalt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,6 +69,29 @@ namespace ITSA_Delon_Jarrod_naidoo.Migrations
                     b.HasIndex("MeterId");
 
                     b.ToTable("Address");
+                });
+
+            modelBuilder.Entity("ITSA_Delon_Jarrod_naidoo.Models.AuthModel", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("password_hashed")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("username")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Auth");
                 });
 
             modelBuilder.Entity("ITSA_Delon_Jarrod_naidoo.Models.Meter", b =>

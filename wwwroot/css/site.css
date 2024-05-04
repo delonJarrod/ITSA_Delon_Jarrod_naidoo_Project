@@ -1,34 +1,4 @@
-/*----------------------------------------------------
-@File: Default Styles
 
-This file contains the styling for the actual template, this
-is the file you need to edit to change the look of the
-template.
----------------------------------------------------- */
-/*=====================================================================
-@Template Name: Banca
-@Version: 1.0.0
-
-@Default Styles
-
-Table of Content:
-01/ Variables
-02/ predefine
-03/ header
-04/ banner
-05/ about
-06/ loan
-08/ team
-09/ job
-10/ card
-11/ testimonial
-12/ blog
-13/ contact
-14/ footer
-
-
-=====================================================================*/
-/*----------------------------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
@@ -2873,6 +2843,7 @@ header {
             padding: 15px;
             background-color: #fff;
             border-radius: 5px;
+            height: 60px;
         }
 
             .breadcrumb-widget.breadcrumb-widget-2 .search-box .search-btn i {
@@ -12159,4 +12130,46 @@ select {
         box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
     }
 
+.word-box {
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0 5px;
+    position: relative;
+    overflow: hidden;
+    animation: border-animation 2s infinite;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .login-container h2 {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+.form-group {
+    margin-bottom: 20px;
+}
+.bg-dashboard {
+    background-color: #0061f2 !important;
+    background-image: linear-gradient(135deg, #0061f2 0%, rgba(105, 0, 199, 0.8) 100%) !important;
+}
+
+.mt-n10-dashboard {
+    margin-top: -6rem !important;
+}
+select {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
 

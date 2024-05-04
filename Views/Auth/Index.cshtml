@@ -1,0 +1,32 @@
+﻿<div class="container">
+    <div class="login-container">
+        <h2>Login</h2>
+        <form asp-controller="Auth" asp-action="LoginPost" method="post" class="pt-125">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <p>Don't have an account? <a href="Auth/Register">Register here</a></p>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#loginForm').submit(function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get the username and password from the form
+            var username = $('#username').val();
+            var password = $('#password').val();
+
+            // Here you'll perform AJAX request to validate the credentials
+            // and handle the login logic
+        });
+    });
+</script>

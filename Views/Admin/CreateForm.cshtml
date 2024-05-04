@@ -1,15 +1,41 @@
 ﻿@model ITSA_Delon_Jarrod_naidoo.Models.User
 
+<div class="slider-active slick-initialized slick-slider">
+    <button type="button" class="slick-prev slick-arrow" style="display: block;"><i class="ti-angle-left"></i></button>
+    <main>
+        <section class="breadcrumb-area" id="banner_animation2" style="position: relative; transform: translate3d(0px, 0px, 0px); transform-style: preserve-3d; backface-visibility: hidden;">
+            <div class="breadcrumb-widget breadcrumb-widget-2  pt-200 pb-145" style="background-image: url(../../wwwroot/img/blog/article-4.png);">
+
+                <div class="shapes">
+                    <div class="one-shape shape-1" data-parallax="{&quot;x&quot;: 100, &quot;y&quot;: 0, &quot;rotateZ&quot;:0}" style="transform:translate3d(0.029px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); -webkit-transform:translate3d(0.029px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); ">
+                        <img src="img/breadcrumb/Polygon-1.png" alt="shape">
+                    </div>
+                    <div class="one-shape shape-2" data-parallax="{&quot;x&quot;: 200, &quot;y&quot;: 50, &quot;rotateZ&quot;:0}" style="transform:translate3d(0.029px, 0.029px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); -webkit-transform:translate3d(0.029px, 0.029px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1); ">
+                        <img src="img/breadcrumb/Polygon-2.png" alt="shape">
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7 mx-auto">
+                            <div class="breadcrumb-content pt-50">
+                                <h1>Create User</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
 <section class="feature-jobs bg_white pt-125 pb-140">
     <div class="container">
         <div class="row justify-content-between align-items-center">
             <div class="col-md-6">
-                <div class="section-title text-start">
-                    <h2 class="mb-0 wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">Create User</h2>
-                </div>
             </div>
-            <form id="userForm" asp-action="Create" method="post" class="pt-125">
-                <div class="container card">
+            <form id="userForm" asp-controller="Admin" asp-action="Create" method="post" class="pt-125">
+                <div class="container card bg_white">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="pt-40">
@@ -17,37 +43,31 @@
                                     <h2 class="text-center">User Information</h2>
                                 </div>
                                 <div class="row pt-40" id="userInfoSection">
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>Name:</label>
                                         <input class="form-control" type="text" asp-for="Name" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="Name"></span>
                                     </div>
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>Surname:</label>
                                         <input class="form-control" type="text" asp-for="Surname" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="Surname"></span>
                                     </div>
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>Date of Birth:</label>
                                         <input class="form-control" type="date" asp-for="DateOfBirth" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="DateOfBirth"></span>
                                     </div>
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>Identity Number:</label>
                                         <input class="form-control" type="text" asp-for="IdentityNumber" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="IdentityNumber"></span>
                                     </div>
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>Email Address:</label>
                                         <input class="form-control" type="email" asp-for="EmailAddress" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="EmailAddress"></span>
                                     </div>
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>Contact Number:</label>
                                         <input class="form-control" type="text" asp-for="ContactNumber" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="ContactNumber"></span>
                                     </div>                                    
-                                    <div class="form-group col col-md-12 pt-3 pb-3 text-end">
+                                    <div class="form-group col-12 col-md-12 pt-3 pb-3 text-end">
                                         <button id="nextUserBtn" class="btn btn-primary w-50" type="button">Next</button>
                                     </div>
                                 </div>
@@ -61,43 +81,36 @@
                                     <h2 class="text-center">Address Information</h2>
                                 </div>
                                 <div class="row pt-40" id="addressInfoSection" style="display: none;">
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>Country:</label>
                                         <input class="form-control" type="text" asp-for="Address.Country" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="Address.Country"></span>
                                     </div>
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>Province:</label>
                                         <input class="form-control" type="text" asp-for="Address.Province" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="Address.Province"></span>
                                     </div>
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>City:</label>
                                         <input class="form-control" type="text" asp-for="Address.City" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="Address.City"></span>
                                     </div>
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>Suburb:</label>
                                         <input class="form-control" type="text" asp-for="Address.Suburb" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="Address.Suburb"></span>
                                     </div>
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>Postal Code:</label>
                                         <input class="form-control" type="text" asp-for="Address.PostalCode" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="Address.PostalCode"></span>
                                     </div>
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>Unit Number:</label>
                                         <input class="form-control" type="text" asp-for="Address.UnitNumber" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="Address.UnitNumber"></span>
                                     </div>
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>Complex Name:</label>
                                         <input class="form-control" type="text" asp-for="Address.ComplexName" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="Address.ComplexName"></span>
                                     </div>
 
-                                    <div class="form-group col col-md-12 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-12 pt-3 pb-3">
                                         <div class="row">
                                             <div class="col col-md-6">
                                                 <button id="backAddressBtn" class="btn btn-secondary w-100" type="button" style="display: none;">Back</button>
@@ -119,34 +132,35 @@
                                     <h2 class="text-center">Meter Information</h2>
                                 </div>
                                 <div class="row pt-40" id="meterInfoSection" style="display: none;">
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>Serial Number:</label>
                                         <input class="form-control" type="text" asp-for="Address.Meter.SerialNumber" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="Address.Meter.SerialNumber"></span>
                                     </div>
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>Meter Type:</label>
-                                        <input class="form-control" type="text" asp-for="Address.Meter.MeterType" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="Address.Meter.MeterType"></span>
+                                        <select class="form-control" asp-for="Address.Meter.MeterType" required>
+                                            <option value="">Select Meter Type</option>
+                                            <option value="Electricity">Electricity</option>
+                                            <option value="Water">Water</option>
+                                            <option value="Solar">Solar</option>
+                                        </select>
                                     </div>
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>Asset Name:</label>
                                         <input class="form-control" type="text" asp-for="Address.Meter.AssetName" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="Address.Meter.AssetName"></span>
                                     </div>
-                                    <div class="form-group col col-md-6 pt-3 pb-3">
+                                    <div class="form-group col-12 col-md-6 pt-3 pb-3">
                                         <label>Voltage Amperage:</label>
                                         <input class="form-control" type="number" asp-for="Address.Meter.VoltageAmperage" step="0.01" required />
-                                        <span class="text-danger field-validation-error" asp-validation-for="Address.Meter.VoltageAmperage"></span>
                                     </div>
 
                                     <div class="form-group col col-md-12 pt-3 pb-3">
                                         <div class="row">
-                                            <div class="col col-md-6">
+                                            <div class="col-12 col-md-6">
                                                 <button id="backMeterBtn" class="btn btn-secondary w-100" type="button" style="display: none;">Back</button>
                                             </div>
-                                            <div class="col col-md-6">
-                                                <button id="submitBtn" class="btn btn-success w-100" type="submit" style="display: none;">Submit</button>
+                                            <div class="col-12 col-md-6">
+                                                <button id="submitBtn" class="btn btn-success w-100" type="submit" onclick="submitForm(event)" style="display: none;">Submit</button>
                                             </div>
                                         </div>
                                     </div>
@@ -159,24 +173,46 @@
             </form>
         </div>
     </div>
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Congratulations!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    User added successfully.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <script>
     $(document).ready(function () {
         $("#nextUserBtn").click(function () {
-            $("#userInfoSection").slideUp();
-            $("#addressInfoSection").slideDown();
-            $("#nextUserBtn").hide();
-            $("#nextAddressBtn").show();
-            $("#backAddressBtn").show();
+            if (validateSection("userInfoSection")) {
+                $("#userInfoSection").slideUp();
+                $("#addressInfoSection").slideDown();
+                $("#nextUserBtn").hide();
+                $("#nextAddressBtn").show();
+                $("#backAddressBtn").show();
+            }
         });
 
         $("#nextAddressBtn").click(function () {
-            $("#addressInfoSection").slideUp();
-            $("#meterInfoSection").slideDown();
-            $("#nextAddressBtn").hide();
-            $("#submitBtn").show();
-            $("#backMeterBtn").show();
+            if (validateSection("addressInfoSection")) {
+                $("#addressInfoSection").slideUp();
+                $("#meterInfoSection").slideDown();
+                $("#nextAddressBtn").hide();
+                $("#submitBtn").show();
+                $("#backMeterBtn").show();
+            }
         });
 
         $("#backAddressBtn").click(function () {
@@ -195,6 +231,56 @@
             $("#backMeterBtn").hide();
         });
     });
+
+    function validateSection(sectionId) {
+        var isValid = true;
+        $("#" + sectionId + " select").each(function () {
+            var select = $(this);
+            var value = select.val().trim();
+
+            if (value === "") {
+                select.css("border-color", "red");
+                isValid = false;
+            } else {
+                select.css("border-color", "");
+            }
+        });
+
+        if (!isValid) {
+            var firstInvalidSelect = $("#" + sectionId + " select:first");
+            $('html, body').animate({
+                scrollTop: firstInvalidSelect.offset().top
+            }, 500);
+        }
+
+        return isValid;
+    }
+
+    function submitForm(event) {
+        event.preventDefault();
+
+        if (validateSection("userInfoSection") && validateSection("addressInfoSection") && validateSection("meterInfoSection")) {
+            var formData = $('#userForm').serialize();
+
+            $.ajax({
+                url: "/Admin/Create",
+                type: 'POST',
+                data: formData,
+                success: function (response) {
+                    debugger;
+                    console.log('Form submitted successfully');
+                    $('#successModal').modal('show'); 
+                    $('#userForm')[0].reset(); 
+                    $('html, body').animate({ scrollTop: 0 }, 'slow'); 
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error submitting form:', error);
+                }
+            });
+        } else {
+            console.log('Form submission aborted due to validation errors');
+        }
+    }
 </script>
 
 

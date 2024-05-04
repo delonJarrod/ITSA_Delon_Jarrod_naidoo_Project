@@ -2,53 +2,52 @@
 
 @if (Model != null && Model.Any())
 {
-    <section class="feature-jobs bg_white pt-125 pb-140">
+    <section class="feature-jobs bg_white pb-140">
         <div class="container">
             <div class="row justify-content-between align-items-center">
                 <div class="col-md-6">
-                    <div class="section-title text-start">
-                        <h2 class="mb-0 wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">Customers</h2>
-                    </div>
                 </div>
             </div>
 
             <div class="row pt-60">
                 <div class="col-lg-12">
                     <div class="feature-job-tab">
-                        <ul class="feature-job-list">
-                            @foreach (var person in Model)
-                            {
+                        <ul id="SearchResults" class="feature-job-list">
+                            @{
                                 var count = 1;
-                                <li>
-                                    <div class="single-feature-job wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-                                        <div class="row align-items-center">
-                                            <div class="col-md-1">
-                                                <h6 class="job-title text-center text-md-start">#@count</h6>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <h6 class="job-title">@person.Name @person.Surname</h6>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="job-location me-2">
-                                                    @person.ContactNumber
+                                    foreach (var person in Model)
+                                    {
+                                            <li>
+                                                <div class="single-feature-job wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-md-1">
+                                                            <h6 class="job-title text-center text-md-start">#@count</h6>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <h6 class="job-title">@person.Name @person.Surname</h6>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="job-location me-2">
+                                                                @person.ContactNumber
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="job-location me-2">
+                                                                @person.EmailAddress
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2 pt-md-0 pt-2">
+                                                            <button onclick="View('@person.UserId')" type="button" class="btn btn-primary me-2 w-100">View</button>
+                                                        </div>
+                                                        <div class="col-md-2 pt-md-0 pt-2">
+                                                            <button onclick="confirmDelete('@person.Name', '@person.Surname', '@person.UserId')" type="button" class="btn btn-danger w-100">Delete</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="job-location me-2">
-                                                    @person.EmailAddress
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 pt-md-0 pt-2">
-                                                <button onclick="View('@person.UserId')" type="button" class="btn btn-primary me-2 w-100">View</button>
-                                            </div>
-                                            <div class="col-md-2 pt-md-0 pt-2">
-                                                <button onclick="confirmDelete('@person.Name', '@person.Surname', '@person.UserId')" type="button" class="btn btn-danger w-100">Delete</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                count = count + 1;
-                            }
+                                        </li>
+                                    count++;
+                                }
+                             }
                         </ul>
                     </div>
                 </div>
@@ -65,7 +64,7 @@
             method: "POST",
             data: { UserId: UserId },
             success: function (data) {
-                $("#SearchResult").html(data);
+                $("#SearchResultDash").html(data);
                 $("#preloader").hide();
             },
             error: function (xhr, status, error) {
@@ -86,6 +85,7 @@
                 success: function (data) {
                     $("#SearchResult").html(data);
                     $("#preloader").hide();
+                    scrollToResults();
                 },
                 error: function (xhr, status, error) {
                     console.error(xhr.responseText);
@@ -93,7 +93,16 @@
                 }
             });
         } else {
-          
+
         }
     }
+    function scrollToResults() {
+            var resultsSection = document.getElementById('SearchResults');
+            var position = resultsSection.offsetTop;
+
+            window.scrollTo({
+                top: position,
+                behavior: 'smooth'
+            });
+        }
 </script>

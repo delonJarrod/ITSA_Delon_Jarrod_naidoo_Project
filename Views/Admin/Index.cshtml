@@ -1,6 +1,4 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model List<ITSA_Delon_Jarrod_naidoo.Models.User>
 <!-- Preloader -->
 <div id="preloader" class="" style="display: none;">
     <div id="ctn-preloader" class="ctn-preloader">
@@ -36,9 +34,9 @@
                             <div class="breadcrumb-content pt-50">
                                 <h1>Search our Directory</h1>
                                 <div class="search-box mt-20">
-                                    <form asp-controller="Admin" asp-action="Search">
+                                    <form id="searchForm" asp-controller="Admin" asp-action="Search">
                                         <div class="input-group">
-                                            <input class="form-control" type="text" placeholder="Search..." id="Search" name="Search">
+                                            <input class="form-control" type="text" placeholder="Search by Name or Surname..." id="Search" name="Search">
                                             <button class="search-btn input-group-append" type="submit">
                                                 <svg class="svg-icon search-icon" style="width: 20px;" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">A magnifying glass icon.</desc><g class="search-path" fill="none" stroke="#848F91"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4" /><circle cx="8" cy="8" r="7" /></g></svg>
                                             </button>
@@ -53,33 +51,33 @@
         </section>
     </main>
 </div>
+<div class="">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="search-result-content mt-50">
+                <h2 class="mb-30">Search Results</h2>
+            </div>
+        </div>
+    </div>
+</div>
 
-<div id="SearchResult"></div>
+<div id="SearchResult">
+    <div id="SearchResult">
+        @await Html.PartialAsync("SearchResults", Model)
+    </div>
+</div>
 
-
-<!-- jQuery code -->
-<script>
-    $(document).ready(function () {
-        $("form").submit(function (event) {
-            event.preventDefault();
-
-            var UserID = $("#Search").val();
-            $("#preloader").show();
-            $.ajax({
-                url: "/Admin/SearchResults",
-                method: "POST",
-                data: { UserID: UserID },
-                success: function (data) {
-                    $("#SearchResult").html(data);
-                    $("#preloader").hide();
-                },
-                error: function (xhr, status, error) {
-                    console.error(xhr.responseText);
-                    $("#preloader").hide();
-                }
-            });
-        });
-
-
-    });
-</script>
+<div class="pb-140 pt-110">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="search-result-content mt-50">
+                <p>
+                    On this page, you can use the search bar above to search based on name or surname. The search results will display details about each user, including their name, surname, contact information, and other relevant data.
+                </p>
+                <p>
+                    You can click on the "View" button next to each search result to view more detailed information about the user. Additionally, you can use the "Delete" button to remove a user from the database if necessary.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
