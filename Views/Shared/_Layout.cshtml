@@ -26,15 +26,44 @@
 </head>
 <body>
     <header class="header">
+        <!-- Preloader -->
+        <div id="preloader" class="" style="display: none;">
+            <div id="ctn-preloader" class="ctn-preloader">
+                <div class="round_spinner">
+                    <div class="spinner"></div>
+                    <div class="text">
+                        <img src="img/logo/Logo-2.png" alt="">
+                    </div>
+                </div>
+                <h2 class="head">Did You Know?</h2>
+                <p>We design Banca for the readers, optimizing not for page views or engagement</p>
+            </div>
+        </div>
         @{
             Html.RenderPartial("_navbar");
         }
     </header>
-    <div class="">
+    <div class="" id="base">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+    <footer>
+        @{
+            Html.RenderPartial("_footer");
+        }
+    </footer>
+
+
+    <script>
+        $(document).ready(function () {
+            $("#ironman").click(function () {
+                var elmnt = document.getElementById("base");
+                elmnt.scrollIntoView();
+            });
+        });
+
+    </script>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
